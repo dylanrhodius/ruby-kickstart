@@ -23,7 +23,28 @@
 # GRANDMA:  HUH?! SPEAK UP, SONNY!
 # USER:     BYE
 
+
 def deaf_grandma
+
+  byeC = 0
+  input = gets.chomp
+
+  while byeC < 2
+
+  if input == 'BYE'
+  	byeC = byeC + 1
+  end
+
+  if input != input.upcase
+  	puts 'HUH?! SPEAK UP, SONNY!'
+  else
+  	random = 1930 + rand(21)
+  	puts "NO, NOT SINCE #{random.to_s}!"
+  end
+
+  input = gets.chomp
+
+  end
 
 end
 

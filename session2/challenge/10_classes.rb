@@ -16,4 +16,21 @@
 #
 
 class Person
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  attr_accessor 'name', 'age'
+
+
+#was initially giving birthday 1 argument. Realised
+#that was not needed, as all function has to do is
+#add 1 to the age instance variable
+
+  def birthday
+    @age += 1
+  end
+
+
 end
