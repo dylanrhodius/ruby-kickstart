@@ -111,8 +111,10 @@ def print_song
   num.downto(3) do
     |num|
     eng = english_number(num)
-    puts "#{eng.capitalize} bottles of beer on the wall, #{eng} bottles of beer!"
-    puts "Take one down, pass it around, #{english_number(num-1)} bottles of beer on the wall!"
+    puts "#{eng.capitalize} bottles of beer on the wall,"
+    puts "#{eng.capitalize} bottles of beer,"
+    puts "Take one down, pass it around,"
+    puts "#{english_number(num-1).capitalize} bottles of beer on the wall,"
   end
   puts "Two bottles of beer on the wall,"
   puts "Two bottles of beer,"
@@ -125,6 +127,8 @@ end
 end
 
 end
+
+
 
 # Write a program that outputs the lyrics for "Ninety-nine Bottles of Beer on the Wall"
 # Your program should print the number of bottles in English, not as a number. For example:
