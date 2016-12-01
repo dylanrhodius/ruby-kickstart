@@ -3,3 +3,11 @@
 #
 # reverse_map(1, 2, 3) { |i| i * 2 }      # => [6, 4, 2]
 
+#min 28 video.
+
+def reverse_map(*array, &block)
+  array.reverse.map(&block)
+end
+
+
+puts reverse_map(1, 2, 3) { |i| i * 2 }
