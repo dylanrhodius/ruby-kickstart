@@ -8,7 +8,6 @@ def staircase(n)
 
 # create a for loop from 1 to parameter passed.
   for i in 1..n
-    puts "i = #{i}"
     if i.odd?
       stair_array = []
 # if this parameter is odd, create a new empty array
