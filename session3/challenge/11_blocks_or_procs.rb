@@ -1,3 +1,14 @@
+#receives one parameter which should be 5 by default
+#but can be modified by block
+def array_init(array=5, &block)
+=begin
+If a block is submitted, use that block to initialize each index in the Array (pass it the current index)
+=end
+  block ||= Proc.new { |i| (100 * i).to_s }
+  Array.new(array, &block)
+end
+
+
 # Write a method that initializes an Array
 # it receives one parameter, which is 5 by default, but can be overridden by the user
 # The parameter determines the size of the Array to initialize
@@ -28,7 +39,3 @@
 #     i * -5
 #   end
 # end
-
-
-def array_init
-end

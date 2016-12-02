@@ -1,3 +1,20 @@
+def your_sort(array, &block)
+  block ||= Proc.new { |a, b| a <=> b }
+
+  array.each_index do |x|
+    array.each_index do |y|
+      final_array = block.call(array[x], array[y])
+      array[x], array[y] = array[y], array[x] if final_array < 0
+    end
+  end
+
+end
+
+
+
+
+
+
 # Build your own sort method. It does not have to be fancy, any sort will do.
 # There are many listed here: http://en.wikipedia.org/wiki/Sorting_algorithm#Summaries_of_popular_sorting_algorithms
 #
@@ -51,6 +68,3 @@
 #     a_class_val <=> b_class_val
 #   end
 # end       # => ["a", "m", "r", 1, 3, 4, 9, 2.5, 9.0, 25.8]
-
-def your_sort
-end

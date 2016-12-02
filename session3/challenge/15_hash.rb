@@ -1,3 +1,21 @@
+#If no list given, 0 cars to return. Otherwise,
+#Return 1 after the given car (return the car behind the one given)
+
+def list_size(list)
+  return 0 unless list
+  1 + list_size(list[:next])
+end
+
+#returns zero index if distance 0 is given
+#otherwise divide list value passed in list size
+#method by 2 and then give 1 infront(?) of it.
+
+def middle(list, distance = list_size(list)/2)
+  return list[:data] if distance == 0
+  middle list[:next], (distance - 1)
+end
+
+
 # For this problem, you will need to know how to use a linked list.
 #
 # A linked list is like a train, each car is connected to the car behind it. Then you just

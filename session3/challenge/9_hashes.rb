@@ -1,3 +1,35 @@
+def shared(a, b)
+  # union = Hash.new do |hash, key|
+  #   hash[key] = [(a.include?(key)||nil), # include returns true or false, when false, it goes to the RHS of the ||, and becomes nil
+  #                (b.include?(key)||nil)]
+  # end
+#creating an empty hash to store key/values in
+  union_hash = {}
+#will iterate through first array setting each value of
+#union hash to itself if true, or a [nil, nil] array
+#then sets the value at index 0 to true
+  a.each do |element|
+    union_hash[element] ||= [nil, nil]
+    union_hash[element][0] = true
+  end
+
+#does the same as above for the second array, but this
+#time it sets the value at index 1 to true
+  b.each do |element|
+    union_hash[element] ||= [nil, nil]
+    union_hash[element][1] = true
+  end
+
+#it then creates a new array result selecting all the
+#key value pairs which are both true, and maps the
+#key of these key value pairs
+  result = union_hash.select { |key, value| value == [true, true] }.map { |key, value| key}
+#finally, it returns a key and its respective value in the form of an array
+  return union_hash, result.sort
+end
+
+
+
 # Write a function which takes two arrays, a, and b
 # it should then find the elements that are in both (union)
 #
@@ -27,6 +59,3 @@
 # shared [], []                      # => [{}, []]
 # shared [1,2,:c], ['a','b',:c]      # => [{1=>[true, nil], 2=>[true, nil], :c=>[true, true], "a"=>[nil, true], "b"=>[nil, true]}, [:c]]
 # shared [1,2,3], [3,2,1]            # => [{1=>[true, true], 2=>[true, true], 3=>[true, true]}, [1, 2, 3]]
-
-def shared(a, b)
-end

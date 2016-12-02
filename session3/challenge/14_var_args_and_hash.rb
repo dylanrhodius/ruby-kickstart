@@ -1,3 +1,47 @@
+#defining the method which can take any number of
+#parameters
+def problem_14(*params)
+  #sets variable problem = to the value of "problem"
+  #hash only if this "problem" is actually a hash
+  problem = params.pop[:problem] if params.last.is_a? Hash
+
+  #afaiu, if problem is true he keeps the current
+  #variable value. otherwise, he makes it equal a
+  #value of count_clumps
+  problem ||= :count_clumps
+
+  #returns count_clumps with its parameters if condition is met
+  return count_clumps(*params) if problem == :count_clumps
+  #returns same_ends with its parameters if condition is met
+  return same_ends(*params)    if problem == :same_ends
+end
+
+#defines count_clumps which can take any number of
+#parameters
+
+def count_clumps(*numbers)
+  #sets values of variables
+  clumps     = 0
+  previous   = nil
+  two_before = nil
+
+  #goes through each parameter "numbers" and adds 1
+  #to variable clumps if conidtion is met
+  numbers.each do |number|
+    clumps += 1 if (previous == number) && (previous != two_before)
+  #now sets variable two_before equal to previous and
+  #previous = to the recent number iterated through
+    two_before = previous
+    previous   = number
+  end
+  #returns clumps value
+  clumps
+end
+
+def same_ends(n, *params)
+  params[0, n] == params[-n, n]
+end
+
 # You have two different problems to solve, you must get which one it is from a hash
 # The default value for the hash should be :count_clumps
 # If no hash is provided, choose count_clumps
@@ -20,12 +64,3 @@
 # problem_14 1,   5, 6, 45, 99, 13, 5, 6,  :problem => :same_ends    # => false
 # problem_14 2,   5, 6, 45, 99, 13, 5, 6,  :problem => :same_ends    # => true
 # problem_14 3,   5, 6, 45, 99, 13, 5, 6,  :problem => :same_ends    # => false
-
-def problem_14
-end
-
-def same_ends
-end
-
-def count_clumps
-end
