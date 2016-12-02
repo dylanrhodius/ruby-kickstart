@@ -1,16 +1,16 @@
 class Person
-  
+
   attr_accessor :name
-  
+
   def initialize( &initializer )
     @initializer = initializer
     initializer.call self
   end
-  
+
   def reinit
     @initializer.call self
   end
-  
+
 end
 
 

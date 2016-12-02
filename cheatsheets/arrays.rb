@@ -75,7 +75,7 @@ class Person
   def inspect
     "<#{name}(#{age})>"
   end
-end 
+end
 
   # whatever the block returns will be used to sort the object
 people = [
@@ -99,7 +99,7 @@ ary             # => [1, 2, 3, 4, 5]
 ary.pop         # => 5
 ary             # => [1, 2, 3, 4]
 
-  # if you want to push / pop from the beginning, it's called unshifting and shifting 
+  # if you want to push / pop from the beginning, it's called unshifting and shifting
   # to help you remember which is which, it might help to associate shift with the assembly command shl
 ary = [1,2,3]
 ary.unshift 0
@@ -130,7 +130,7 @@ ary.index(11)         # => nil
 sum , ary = 0 , [1,2,3]
 ary.each { |num| sum += num }
 sum       # => 6
-  
+
   # iterating over each index , capture results in a new Array
 results = Array.new
 %w(a b c).each_index { |i| results.push i }
@@ -197,7 +197,7 @@ a = [1,2,3]
 b = %w(one two three)
 [ a , b ].transpose             # => [[1, "one"], [2, "two"], [3, "three"]]
 a.zip b                         # => [[1, "one"], [2, "two"], [3, "three"]]
-  
+
   # assigning to variables
 a = [1,2,3]
 num1 , num2 , num3 = a
